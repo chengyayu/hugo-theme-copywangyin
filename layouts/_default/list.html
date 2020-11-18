@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+
+<!-- <section> -->
+<div class="outer">
+    <ul class="list-group">
+        {{ range where .Pages.ByDate.Reverse "Section" "posts" }}
+        <li class="list-group-item title">
+            <div class="date">{{ .Date.Format "2006-01-02" }}</div>
+            <br>
+            <a href="{{ .Permalink }}"> {{ .Title }}</a>
+            <!-- <a href="{{ .Permalink }}"><time style="color:black;">{{ .Date.Format "2006-01-02" }}</time>  / {{ .Title }} </a> -->
+        </li>
+    {{ end }}
+  </ul>
+<!-- </section> -->
+
+{{ partial "footer.html" . }}

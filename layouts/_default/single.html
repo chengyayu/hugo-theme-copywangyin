@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+
+    <div class="inner" style="position:relative;">
+        {{ if eq .Site.Params.single false }}
+        {{ else }}
+        <div class="side-btn"><a href="{{.Site.BaseURL}}" class="back">Home</a></div>
+        {{ end }}
+        <div class="blog-post">
+            <h2>{{ .Params.title }}</h2>
+                {{ .Content }}
+        </div>
+
+        <br>
+
+        {{ if eq .Params.copycode false }}
+        {{ else if or (.Site.Params.copyCode) (.Params.copycode)}}
+        <script src="{{.Site.BaseURL}}js/copyCode.js"></script>
+        <script src="{{.Site.BaseURL}}js/tooltips.js"></script>
+        {{ end }}
+
+{{ partial "footer.html" . }}

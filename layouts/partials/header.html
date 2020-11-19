@@ -69,7 +69,7 @@
                         {{ if .Site.Params.menus }}
                             {{ with .Site.Menus.main }}
                                 {{ range . }}
-                                <li class="{{ if eq .URL ""}}active{{ end }}"><a href="{{.URL}}">{{ .Name }}</a></li>
+                                <li><a href="{{.URL}}">{{ .Name }}</a></li>
                                 {{ end }}
                             {{ end }}
                         {{ else }}

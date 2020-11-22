@@ -3,51 +3,25 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         {{ with .Site.LanguageCode }}<meta http-equiv="content-language" content="{{ . }}" />{{ end }}
-        <!-- {{ if .IsHome }} -->
         <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1, user-scalable=no">
-        <!-- {{ else }} -->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
-        <!-- {{ end }} -->
-        
-        <!-- load bootstrap css -->
         <title>{{.Title}}</title>
 
         {{ if .IsPage }}
-            
-            <!-- 添加 clipboard 复制按钮 -->
-            {{ if or (.Site.Params.copyCode) (.Params.copycode) }}
-            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
-            <link href="{{.Site.BaseURL}}css/tooltips.css" rel="stylesheet">
-            {{end}}
 
-            <!-- 单博文 css 文件  -->
-            {{ if .Params.css }}
-                {{range .Params.css }} <link rel="stylesheet" href="{{ . }}"></link>{{ end }}
-            {{ else }}
-            <link rel="stylesheet" href="{{.Site.BaseURL}}css/main.css">
-            {{ end }}
-
-            <!-- 代码高亮风格 -->
-            {{ with .Site.Params.highlight | default "github" }}
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ . }}.min.css" rel="stylesheet">
-            {{ end }}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-            {{ range .Site.Params.langs }} <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{ . }}.min.js"></script>{{ end }}
-            {{ range .Params.langs }} <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{ . }}.min.js"></script>{{ end }}
-            <script>hljs.initHighlightingOnLoad();</script>
+        <!-- 单博文 css 文件  -->
+        <link rel="stylesheet" href="{{.Site.BaseURL}}css/main.css">
 
         {{ else }}
 
-            <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-            <link rel="stylesheet" href="{{.Site.BaseURL}}css/stylesheet.css">
-            <link rel="stylesheet" href="{{.Site.BaseURL}}css/home.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{{.Site.BaseURL}}css/home.css">
             
         {{ end }}
     </head>
     
     <body>
-        <!-- 只有在首页才给出，导航条 -->
+        <!-- 导航条 -->
         {{ if not .IsPage }}
         <nav class="navbar navbar-default navbar-static-top" style="opacity: .9" role="navigation">
             <div class="container-fluid">

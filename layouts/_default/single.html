@@ -1,9 +1,9 @@
 {{ partial "header.html" . }}
 
     <div class="inner" style="position:relative;">
-        {{ if eq .Site.Params.single true }}
+        <!-- {{ if eq .Site.Params.single true }}
         <div class="side-btn"><a href="{{.Site.BaseURL}}" class="back">Home</a></div>
-        {{ end }}
+        {{ end }} -->
         <div class="blog-post">
             <h2>{{ .Params.title }}</h2>
                 {{ .Content }}
